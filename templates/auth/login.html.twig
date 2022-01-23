@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block main %}
+	<div class="login-form">
+		<h1>Connexion</h1>
+		{% if hasError %}
+			<strong class="error">Email ou mot de passe incorrect</strong>
+		{% endif %}
+		<form class="form" method="POST">
+			<div class="form-group">
+				<div class='form-field'>
+					<label for="email">Email</label>
+					<input id="email" type="email" name="_username">
+				</div>
+				<div class='form-field'>
+					<label for="password">Mot de passe</label>
+					<input id="password" type="password" name="_password">
+				</div>
+			</div>
+			<div class='cta'>
+				<button class="btn-primary-outline">Connexion</button>
+				<a href="{{path('auth_register')}}">Pas de compte ?</a>
+			</div>
+		</form>
+	</div>
+{% endblock %}

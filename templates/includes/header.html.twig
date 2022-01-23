@@ -1,0 +1,59 @@
+<header class="header">
+	<nav class="header__nav">
+		<div class="header__nav--top">
+			<div>
+				<a href="{{path("home")}}" class="logo-container">
+					<span class="logo-container__link" href="{{path("home")}}">
+						<img src="/assets/images/logo.png" alt="">
+					</span>
+					Moocademy
+				</a>
+				<form class="search-form">
+					<button title="Rechercher" class="icon-search search-form__icon" type="submit"></button>
+					<input autocomplete="off" class="search-form__input" type="search" name="q" inputmode="search" placeholder="Rechercher">
+				</form>
+			</div>
+			<ul>
+				<li>
+					<a class='' href="{{path("home")}}">Accueil</a>
+				</li>
+				<li>
+					<a href="#">Enseigner</a>
+				</li>
+				<li>
+					<a class="icon-cart" href="{{path("cart_index")}}"></a>
+				</li>
+				{% if not app.user %}
+					<li>
+						<a class="header__nav--login" href="{{path('auth_login')}}">Se connecter</a>
+					</li>
+					<li>
+						<a class="header__nav--signup" href="{{path('auth_register')}}">S'inscrire</a>
+					</li>
+
+				{% else %}
+					<li>
+						<a class="header__nav--logout" href="{{path('auth_logout')}}">Se déconnecter</a>
+					</li>
+				{% endif %}
+				<li>
+					<a class="icon-world" href="#"></a>
+				</li>
+			</ul>
+		</div>
+		<ul class="header__nav--bottom header__nav__menu">
+			{% for category in categories %}
+				<li data-menu="{{category.slug}}">
+					<a href="{{path("course_category", {slug: category.slug})}}">{{category.name}}</a>
+					<ul class="header__nav__menu__submenu">
+						{% for subcategory in category.subcategories %}
+							<li>
+								<a class="submenu-item" href='{{path("course_sub_category", {slug: category.slug, sub_category_slug: subcategory.slug})}}'>{{subcategory.name}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

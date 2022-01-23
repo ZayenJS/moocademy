@@ -1,0 +1,349 @@
+@import 'imports/variables';
+
+$header-height: 22.5rem;
+
+main {
+  padding: 0;
+  max-width: revert;
+}
+
+.course__container {
+  position: relative;
+
+  [class^='btn-'] {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    display: block;
+  }
+
+  &:before {
+    content: '';
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .course__content {
+    max-width: calc(var(--max-width) / 1.25);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: $header-height 1fr;
+    grid-template-areas: 'content-header course-aside' 'content-body course-aside';
+  }
+
+  header {
+    grid-area: content-header;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 2rem 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .header--content {
+    max-width: var(--max-width);
+
+    a[href^='#'] {
+      color: var(--main-color-lighter);
+      border-bottom: 1px solid var(--main-color-lighter);
+      font-weight: 600;
+    }
+  }
+
+  .breadcrumbs {
+    @include flex(center);
+    gap: 0.5rem;
+    color: var(--main-color-lighter);
+    font-weight: 600;
+
+    i {
+      font-size: 0.75em;
+    }
+  }
+
+  main {
+    grid-area: content-body;
+    padding: 2rem 4rem 2rem 0;
+  }
+}
+
+.course {
+  &-rating--container {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  &-author {
+    margin: 0.5rem 0;
+  }
+
+  &-infos {
+    @include flex(center);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  &-aside {
+    position: relative;
+    z-index: 1;
+    height: fit-content;
+    grid-area: course-aside;
+    margin-top: 2rem;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0.5rem 1rem 0.25rem rgba(0, 0, 0, 0.2);
+
+    hr {
+      height: 1px;
+      border: none;
+      background-color: rgba($dimmedColor, 0.25);
+    }
+
+    &-content,
+    &-footer {
+      background-color: #fff;
+    }
+
+    &-content {
+      padding: 3rem 2rem 2rem 2rem;
+    }
+
+    &-price {
+      font-size: 2.25rem;
+      font-weight: 600;
+    }
+
+    &-course-infos {
+      strong {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      ul {
+        @include flex($flex-flow: column nowrap);
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+
+      div {
+        @include flex(center, space-around);
+      }
+
+      a {
+        border-bottom: 1px solid #000;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    }
+
+    &-footer {
+      padding: 2rem;
+
+      strong {
+        display: block;
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+
+      p {
+        opacity: 0.7;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .cta-container {
+      @include flex(stretch, center, column nowrap);
+      margin: 1rem 0;
+      gap: 0.5rem;
+      width: 100%;
+
+      small {
+        text-align: center;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+
+    &--container {
+      cursor: pointer;
+      min-height: 10rem;
+      width: 100%;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        color: #fff;
+        z-index: 1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #222;
+        width: 4rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      p {
+        position: absolute;
+        color: #fff;
+        bottom: 1rem;
+        text-align: center;
+        font-weight: 600;
+        left: 0;
+        right: 0;
+        text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+.course-main {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+.goals {
+  padding: 2rem;
+  border: 1px solid rgba($dimmedColor, 0.4);
+  border-radius: 6px;
+
+  &__list {
+    @include flex($flex-flow: row wrap);
+    margin-top: 1rem;
+    gap: 1rem;
+
+    li {
+      @include flex(stretch, center);
+      color: darken($dimmedColor, 10%);
+      gap: 1rem;
+      width: 48%;
+      min-width: 300px;
+    }
+  }
+}
+
+.course-curriculum {
+  margin: 2rem 0;
+
+  h2 {
+    margin-bottom: 1.5rem;
+
+    + div {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  [class^='icon-dot'] {
+    font-size: 0.25em;
+    position: relative;
+    top: -2px;
+  }
+
+  &__title {
+    @include flex(flex-start);
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    i {
+      height: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__list {
+    border: 1px solid rgba($dimmedColor, 0.4);
+    border-radius: 6px;
+  }
+
+  &__item {
+    & > div {
+      @include flex(center, space-between);
+      cursor: pointer;
+      border: 1px solid rgba($dimmedColor, 0.4);
+      width: 100%;
+      background-color: rgba($dimmedColor, 0.075);
+      padding: 1rem 2rem;
+
+      + ul {
+        display: none;
+      }
+
+      &.open + ul {
+        display: block;
+      }
+    }
+
+    &-list {
+      [class*='icon-'] {
+        &:before {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &-list-item {
+      @include flex(center, space-between);
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+.course-prerequisites {
+  padding: 1rem 0;
+
+  h2 {
+    @include flex(center, space-between);
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+
+    ::marker {
+      font-size: 2rem;
+    }
+  }
+}
+
+.course-description {
+  padding: 2rem 0;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}

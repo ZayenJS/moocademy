@@ -1,0 +1,88 @@
+<main class="course-main">
+	<section class="goals">
+		<h2>Ce que vous apprendrez</h2>
+		<ul class="goals__list">
+			{% for goal in course.goals %}
+				<li>
+					<span class="icon-check"></span>
+					<span>{{ goal }}</span>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+	<section class="course-curriculum">
+		<h2>Contenu du cours</h2>
+		<div>
+			<em>
+				{{ course.sections | length }}
+				sections
+				<i class="icon-dot"></i>
+				{{ course.totalSessions }}
+				sessions
+				<i class="icon-dot"></i>
+				Durée totale:
+				{{ course.totalHoursAndMinutes }}
+			</em>
+		</div>
+		<ul class="course-curriculum__list">
+			{% for section in course.sections %}
+				<li class="course-curriculum__item">
+					<div>
+						<div class="course-curriculum__title">
+							<i class="icon-chevron-down"></i>
+							<h3>
+								{{ section.title }}
+							</h3>
+						</div>
+						<div>
+							<span>{{section.lectures | length}}
+								sessions</span>
+							<i class="icon-dot"></i>
+							<span>{{section.hoursAndMinutes}}</span>
+						</div>
+					</div>
+					<ul class="course-curriculum__item-list">
+						{% for lecture in section.lectures %}
+							<li class="course-curriculum__item-list-item">
+								<span class="course-curriculum__item-list-item-title {{lecture.type == 'video' ? 'icon-play' : 'icon-info'}}">{{ lecture.title }}</span>
+								<span class="course-curriculum__item-list-item-duration">{{ lecture.formattedHoursMinutesSeconds }}</span>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+		</section>
+		<hr>
+		<section class="course-prerequisites">
+			<h2>
+				<span>
+					Prérequis
+				</span>
+				<i class="icon-chevron-up"></i>
+			</h2>
+			<ul>
+				{% for requirement in course.requirements %}
+					<li>
+						{{ requirement }}
+					</li>
+				{% endfor %}
+			</ul>
+		</section>
+		<hr>
+		<section class="course-description">
+			<h2>Description</h2>
+			<div>
+				{{ course.description }}
+			</div>
+		</section>
+		<section id="instructor" class="course-author">
+			<h2>Formateur</h2>
+			<a href="#">
+				<img src="{{ course.author.avatar }}" alt="{{ course.author.fullname }}">
+				<span>{{ course.author.fullname }}</span>
+			</section>
+			<section id="reviews" class="course-reviews">
+				<h2>Avis</h2>
+			</section>
+
+		</main>

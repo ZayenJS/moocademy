@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{course.title}}
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{asset('assets/css/course.css')}}">
+	<script src="{{asset('assets/js/course.js')}}" defer></script>
+{% endblock %}
+
+{% block main %}
+	<section class="course__container">
+		<div class="course__content">
+			<header>
+				<div class="header--content">
+					<div class="breadcrumbs">
+						<a href="{{path("course_category", {slug: course.category.slug})}}">
+							{{course.category.name}}
+						</a>
+						<i class="icon-chevron-right"></i>
+						<a href="{{path("course_sub_category", {slug: course.category.slug, sub_category_slug: course.subcategory.slug})}}">
+							{{course.subcategory.name}}
+						</a>
+					</div>
+					<h1>{{course.title}}</h1>
+					<h2>{{course.subtitle}}</h2>
+					{# TODO: refactor #}
+					<div class='course-rating--container'>
+						<strong class="course-rating">
+							{{course.rating |number_format(1, ',', ' ')}}
+							{% for i in 1..5 %}
+								{% if i == (course.rating | round(0, 'ceil'))  %}
+									{% if i == course.rating %}
+										<i class="icon-star"></i>
+									{% else %}
+										<i class="icon-star-half-o"></i>
+									{% endif %}
+								{% elseif i <= course.rating  %}
+									<i class="icon-star"></i>
+								{% else %}
+									<i class="icon-star-o"></i>
+								{% endif %}
+
+							{% endfor %}
+						</strong>
+						<span>
+							(<a href="#reviews">
+								{{course.comments| length}}
+								notes
+							</a>)
+						</span>
+						<span>
+							{{course.participants | length}}
+							participants
+						</span>
+					</div>
+					<div class="course-author">
+						Crée par
+						<a href="#instructor">{{course.author.fullname}}</a>
+
+					</div>
+					<div class="course-infos">
+						<div>
+							<i class="icon-sale"></i>
+							<em>Dernière mise à jour:
+								{{(course.updatedAt ?: course.createdAt) | date('m/Y')}}</em>
+						</div>
+						<div>
+							<i class="icon-world"></i>
+							<span>{{course.language.name}}</span>
+						</div>
+					</div>
+				</div>
+			</header>
+			{% include "course/_course_aside.html.twig" %}
+			{% include "course/_course_main.html.twig" %}
+		</div>
+
+	</section>
+{% endblock %}

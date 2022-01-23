@@ -1,0 +1,45 @@
+<aside class="course-aside">
+	<div class="course-thumbnail--container icon-play">
+		<img src="{{course.thumbnail}}" data-video-url="{{course.sections[0].lectures[0].videoUrl}}" class="course-thumbnail"/>
+		<p>Afficher un apreçu de ce cours</p>
+	</div>
+	<div class="course-aside-content">
+		<strong class="course-aside-price">{{course.price | number_format(2, ',', ' ')}}
+			&euro;</strong>
+		<div class="cta-container">
+			<a class="btn-secondary" href="#">Ajouter au panier</a>
+			<a class="btn-secondary-outline" href="#">Acheter dès maintenant</a>
+			<small>Garantie satisfait ou remboursé de 30 jours</small>
+		</div>
+		<div class="course-aside-course-infos">
+			<strong>
+				Ce cours comprend:
+			</strong>
+			<ul>
+				<li class="icon-play">
+					Vidéo à la demande de
+					{{course.totalHours}}
+					heures
+				</li>
+				<li class="icon-mobile">
+					Accès sur mobile et TV
+				</li>
+				<li class="icon-trophy">
+					Certificat de fin de formation
+				</li>
+			</ul>
+			<div>
+				<a href="#">Appliquer le coupon</a>
+				<a href="#">Offrir ce cours</a>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="course-aside-footer">
+		<strong>Training 5 or more people?</strong>
+		<p>
+			Offrez aux membres de votre équipe un accès à plus de 6 000 des meilleurs cours Udemy, à tout moment, où qu'ils soient.
+		</p>
+		<a href="#" class="btn-secondary-outline">Essayer notre offre business</a>
+	</div>
+</aside>
