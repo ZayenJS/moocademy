@@ -1,0 +1,199 @@
+@charset "UTF-8";
+:root {
+  --main-color: hsl(206, 40%, 35%);
+  --main-color-dark: hsl(206, 40%, 25%);
+  --main-color-light: hsl(206, 40%, 55%);
+  --main-color-lighter: hsl(206, 40%, 80%);
+  --scrollbar-width: 1rem;
+  --max-width: 1600px;
+}
+
+.courses__container {
+  position: relative;
+}
+.courses__container a:hover {
+  color: unset;
+}
+.courses__container h1 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+.courses__container h1 em {
+  color: #676767;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.courses__container > div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+.courses__container hr {
+  height: 2px;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.25);
+  width: 100%;
+}
+
+.courses-filter {
+  min-width: 20rem;
+}
+.courses-filter hr:first-child {
+  margin-top: 0;
+}
+.courses-filter legend {
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  font-weight: 600;
+}
+.courses-filter fieldset > div {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+.courses-filter fieldset > div > div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.courses-filter label {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.courses-filter label i {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.courses-filter input[type=radio] {
+  appearance: none;
+  outline: 2px solid transparent;
+  outline-offset: -4px;
+  border: 1px solid var(--main-color-dark);
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+.courses-filter input[type=radio]:checked {
+  background-color: var(--main-color);
+  outline-color: #fff;
+}
+.courses-filter input[type=checkbox] {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  border: 1px solid #676767;
+  background-color: transparent;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  outline: none;
+  color: transparent;
+  cursor: pointer;
+  transition: 150ms all ease;
+}
+.courses-filter input[type=checkbox]:before {
+  content: "";
+  font-family: "common-icons";
+  font-size: 0.75em;
+}
+.courses-filter input[type=checkbox]:checked {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.courses-filter button {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+.courses-main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.course {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+}
+.course-image {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 20rem;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.course-image img {
+  max-width: 100%;
+}
+.course-content {
+  width: 100%;
+}
+.course-content h3 {
+  margin: 0.5rem 0;
+  text-align: justify;
+}
+.course-content > div {
+  color: #676767;
+}
+.course h2 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 600;
+  gap: 1rem;
+}
+.course-author {
+  color: #676767;
+}
+.course-infos {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.course-infos .icon-dot:before {
+  position: relative;
+  top: -1px;
+  font-size: 0.5rem !important;
+}
+
+/*# sourceMappingURL=courses.css.map */

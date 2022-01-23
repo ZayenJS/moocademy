@@ -1,0 +1,117 @@
+<form class="courses-filter">
+	<hr>
+	<fieldset>
+		<legend>Notes</legend>
+		<div>
+			<div>
+				<input value="4.5" type="radio" name="rating" id="rating-1">
+				<label for="rating-1">
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star-half-o"></i>
+					A partir de 4,5
+				</label>
+			</div>
+			<div>
+				<input value="4" type="radio" name="rating" id="rating-2">
+				<label for="rating-2">
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star-o"></i>
+					A partir de 4
+				</label>
+			</div>
+			<div>
+				<input value="3.5" type="radio" name="rating" id="rating-3">
+				<label for="rating-3">
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star-half-o"></i>
+					<i class="icon-star-o"></i>
+					A partir de 3,5
+				</label>
+			</div>
+			<div>
+				<input value="3" type="radio" name="rating" id="rating-4">
+				<label for="rating-4">
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star"></i>
+					<i class="icon-star-o"></i>
+					<i class="icon-star-o"></i>
+					A partir de 3
+				</label>
+			</div>
+		</div>
+	</fieldset>
+	<hr>
+	<fieldset>
+		<legend>Durée de la vidéo</legend>
+		<div>
+			<div>
+				<input value="0:1" type="checkbox" name="duration" id="duration-1">
+				<label for="duration-1">
+					0 à 1 heure
+				</label>
+			</div>
+			<div>
+				<input value="1:3" type="checkbox" name="duration" id="duration-2">
+				<label for="duration-2">
+					1 à 3 heures
+				</label>
+			</div>
+			<div>
+				<input value="3:6" type="checkbox" name="duration" id="duration-3">
+				<label for="duration-3">
+					3 à 6 heures
+				</label>
+			</div>
+			<div>
+				<input value="6:17" type="checkbox" name="duration" id="duration-4">
+				<label for="duration-4">
+					6 à 17 heures
+				</label>
+			</div>
+			<div>
+				<input value="17:infinity" type="checkbox" name="duration" id="duration-5">
+				<label for="duration-5">
+					Plus de 17 heures
+				</label>
+			</div>
+		</div>
+	</fieldset>
+	<hr>
+	<fieldset>
+		<legend>Niveau</legend>
+		<div>
+			{% for level in levels %}
+				<div>
+					<input value="{{ level.id }}" type="checkbox" name="level" id="level-{{ level.id }}">
+					<label for="level-{{ level.id }}">
+						{{ level.name }}
+					</label>
+				</div>
+			{% endfor %}
+		</div>
+	</fieldset>
+	<hr>
+	<fieldset>
+		<legend>Langues</legend>
+		<div>
+			{% for language in languages %}
+				<div>
+					<input value="{{ language.id }}" type="checkbox" name="language" id="language-{{ language.id }}">
+					<label for="language-{{ language.id }}">
+						{{ language.name }}
+					</label>
+				</div>
+			{% endfor %}
+		</fieldset>
+		<hr>
+		<button class="btn-secondary">Rechercher</button>
+	</form>

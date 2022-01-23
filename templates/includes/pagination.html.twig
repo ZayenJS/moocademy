@@ -1,0 +1,10 @@
+<ul class="pagination">
+	{% set routeParams = routeParams ?: {} %}
+	{% for pageNumber in 1..pages %}
+		<li>
+			<a class="pagination__link {{pageNumber == currentPage ? 'current' : ''}}" href="{{path(route, routeParams | merge({page: pageNumber}))}}">
+				{{pageNumber}}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
